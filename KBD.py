@@ -97,10 +97,10 @@ class KBD_regression_test(unittest.TestCase):
             Drainnum = int(Drainnum)
             getDrainnumB = int(getDrainnumB)
             if (Drainnum <= getDrainnumB) and ((getDrainnumB - Drainnum) <= 4):
-                print(str(Drainnum) + "v.s" + str(getDrainnumB) + " = PASS")
+                print(str(Drainnum) + " v.s " + str(getDrainnumB) + " = PASS")
                 file.write(str(Drainnum) + "v.s" + str(getDrainnumB) + " = PASS" + "\n")
             else:
-                print(str(Drainnum) + "v.s" + str(getDrainnumB) + " = FAIL")
+                print(str(Drainnum) + " v.s " + str(getDrainnumB) + " = FAIL")
                 file.write(str(Drainnum) + "v.s" + str(getDrainnumB) + " = FAIL" + "\n")
 
         file.close()
