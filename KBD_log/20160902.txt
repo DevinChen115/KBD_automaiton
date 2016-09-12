@@ -1,0 +1,3 @@
+Drainging apps count(Home page, getDrainnumA) = 30+ Power issues
+Drainging apps count(scanning page, getDrainnumB) = 37
+30v.s37 = FAIL

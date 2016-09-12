@@ -1,0 +1,3 @@
+Drainging apps count(Home page, getDrainnumA) = 35+ Power issues
+Drainging apps count(scanning page, getDrainnumB) = 35
+35v.s35 = PASS

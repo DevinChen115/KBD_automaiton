@@ -34,10 +34,6 @@ class KBD_regression_test(unittest.TestCase):
         getDrainnumA = ""
         getDrainnumB = "35"
 
-        #Open a new file to record draining apps count
-        file = open(str(PATH('./KBD_log/' + str(time.strftime("%Y%m%d") + '.txt'))) ,"w")
-        file.close()
-        
         #Click Save Tab
         try:
             currently_waiting_for = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.ID, el.SaveTab)))
@@ -64,12 +60,14 @@ class KBD_regression_test(unittest.TestCase):
 
         #Get draining apps count (scanning page)
         try:
-            currently_waiting_for = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.ID, el.ScanPageDrainnumB)))
+            currently_waiting_for = WebDriverWait(self.driver, 15).until(EC.presence_of_element_located((By.ID, el.ScanPageDrainnumB)))
             getDrainnumB = self.driver.find_element_by_id(el.ScanPageDrainnumB).text
             print("Query and Get Scan Page Drain num B done. getDrainnumB = " + getDrainnumB)
         except TimeoutException:
             print("Query and Get Scan Page Drain num B Timeout Error")
         
+        #Open a new file to record draining apps count
+        file = open(str(PATH('./KBD_log/' + str(time.strftime("%Y%m%d") + '.txt'))) ,"w")
         #Write count into log file (scanning page)
         file = open(str(PATH('./KBD_log/' + str(time.strftime("%Y%m%d") + '.txt'))) ,"a")
         if getDrainnumA == "":
@@ -105,25 +103,7 @@ class KBD_regression_test(unittest.TestCase):
 
         file.close()
 
-        """
-        sleep(8)
 
-        #Go to Charging Tab
-        clickKBDChargeTab = self.driver.find_element_by_id(el.ChargeTab).click()
-        sleep(3)
-        #Go to Mode Tab
-        clickKBDModeTab = self.driver.find_element_by_id(el.ModeTab).click()
-        sleep(3)
-        #Go to Rank Tab
-        clickKBDRankTab = self.driver.find_element_by_id(el.RankTab).click()
-        sleep(3)
-        
-        self.driver.back()
-        sleep(0.5)
-        self.driver.back()
-        sleep(3)
-        """
-    
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(KBD_regression_test)
     unittest.TextTestRunner(verbosity=2).run(suite)
