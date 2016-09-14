@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>test</h1>
-<p class='attribute'><strong>Start Time:</strong> 2016-09-12 19:59:52</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:54.791134</p>
-<p class='attribute'><strong>Status:</strong> Error 1</p>
+<p class='attribute'><strong>Start Time:</strong> 2016-09-13 17:40:35</p>
+<p class='attribute'><strong>Duration:</strong> 0:01:34.666415</p>
+<p class='attribute'><strong>Status:</strong> Pass 2</p>
 
 <p class='description'>first time test</p>
 </div>
@@ -221,55 +221,37 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='errorClass'>
+<tr class='passClass'>
     <td>KBD_regression_test</td>
-    <td>1</td>
+    <td>2</td>
+    <td>2</td>
     <td>0</td>
     <td>0</td>
-    <td>1</td>
-    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c1',2)">Detail</a></td>
 </tr>
 
-<tr id='ft1.1' class='none'>
-    <td class='errorCase'><div class='testcase'>test_SaveTabOptimize</div></td>
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_SaveTabOptimize</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
-        error</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
 
-    <div id='div_ft1.1' class="popup_window">
+    <div id='div_pt1.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.1: Check Save Tab done.
-Click Save Tab done.
-Query Home Page Drain num A done.
-Get Home Page Drain num A done.
-Check Optimize button done.
-Click Optimize button done.
-Traceback (most recent call last):
-  File "KBD_regression_test.py", line 57, in test_SaveTabOptimize
-    getDrainnumB = self.kbdutil.getTextEL(el.ScanPageDrainnumB)
-  File "c:\Users\User\git\KBD_automaiton\KBD_util.py", line 49, in getTextEL
-    return self.driver.find_element_by_id(rid).text
-  File "C:\Users\User\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 269, in find_element_by_id
-    return self.find_element(by=By.ID, value=id_)
-  File "C:\Users\User\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 752, in find_element
-    'value': value})['value']
-  File "C:\Users\User\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 236, in execute
-    self.error_handler.check_response(response)
-  File "C:\Users\User\AppData\Local\Programs\Python\Python35-32\lib\site-packages\appium\webdriver\errorhandler.py", line 29, in check_response
-    raise wde
-  File "C:\Users\User\AppData\Local\Programs\Python\Python35-32\lib\site-packages\appium\webdriver\errorhandler.py", line 24, in check_response
-    super(MobileErrorHandler, self).check_response(response)
-  File "C:\Users\User\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 192, in check_response
-    raise exception_class(message, screen, stacktrace)
-selenium.common.exceptions.NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
-
+pt1.1: [PASS][Home Page]Check Save Tab done.
+[PASS][Home Page]Get Home Page Drain num A done. getDrainnumA = 30+ Power issues
+[PASS][Home Page]Click Optimize button done.
+[PASS][Result Page]Check and Click floating window Tryitnow done. It's 1st time enter to Result Page.
+[PASS][Result Page]Click Back key to Home done.
+[PASS][Home Page]Check and Click floating window X done. It's 1st time enter to Home Page.
+[PASS][Home Page]Get Battery Percentage done. HomePagePercent = 97
 
 
         </pre>
@@ -279,12 +261,17 @@ selenium.common.exceptions.NoSuchElementException: Message: An element could not
     </td>
 </tr>
 
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_linear_button</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
 <tr id='total_row'>
     <td>Total</td>
-    <td>1</td>
+    <td>2</td>
+    <td>2</td>
     <td>0</td>
     <td>0</td>
-    <td>1</td>
     <td>&nbsp;</td>
 </tr>
 </table>

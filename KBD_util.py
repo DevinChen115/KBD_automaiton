@@ -19,8 +19,10 @@ class Util:
     def checkElClickable(self, rid):
         try:
             WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.ID, rid)))
+            return True
         except TimeoutException:
             print("Check element " + str(rid) + " clickable fail.")
+            return False
     
     def checkElPresence(self, rid):
         try:
@@ -49,12 +51,3 @@ class Util:
             return self.driver.find_element_by_id(rid).text
         except TimeoutException:
             print("Get element " + str(rid) + " Text Error.")
-"""
-    def checkElPresence_a(self, rid):
-        try:
-            el = WebDriverWait(self.driver, 20).until(EC.presence_of_element_located((By.ID, rid)))
-            return el.text
-        except TimeoutException:
-            print("Check element " + str(rid) + " presence fail.")
-            return False
-"""
