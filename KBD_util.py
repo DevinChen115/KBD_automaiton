@@ -1,4 +1,4 @@
-import os, sys, time, fnmatch, smtplib, shutil
+import os, sys, time, fnmatch, smtplib, shutil, subprocess
 from time import sleep
 from datetime import date
 import unittest
@@ -11,6 +11,23 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
 import KBD_element as el
+
+class device_registration():
+    def getDeviceStatus():
+        getadbState = subprocess.getoutput("adb get-state")
+        while getadbState != "device":
+            print("adb connection is unavailable to use. getadbState = " + getadbState)
+            getadbKillServer = subprocess.getoutput("adb kill-server")
+            getadbState = subprocess.getoutput("adb get-state")
+        print("adb connection is available to use. getadbState = " + getadbState)
+        getPropManufacturer = subprocess.getoutput("adb shell getprop ro.product.manufacturer")
+        getPropModel = subprocess.getoutput("adb shell getprop ro.product.model")
+        getPropBrand = subprocess.getoutput("adb shell getprop ro.product.brand")
+        getPropAndroidversion = subprocess.getoutput("adb shell getprop ro.build.version.release")
+        getPropSDKversion = subprocess.getoutput("adb shell getprop ro.build.version.sdk")
+        getPropSerialNo = subprocess.getoutput("adb shell getprop ro.boot.serialno")
+        Result = dict (Manufacturer=getPropManufacturer,Model=getPropModel,Brand=getPropBrand,Androidversion=getPropAndroidversion,SDKversion=getPropSDKversion,SerialNo=getPropSerialNo)
+        return Result
 
 class Util:
     def __init__(self, mDevice):

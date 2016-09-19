@@ -1,4 +1,4 @@
-import os, sys, time, fnmatch, smtplib, shutil
+import os, sys, time, fnmatch, smtplib, shutil, subprocess
 from time import sleep
 from datetime import date
 import unittest
@@ -16,13 +16,14 @@ import HTMLTestRunner
 
 # Returns abs path relative to this file and not cwd
 PATH = lambda p: os.path.abspath(os.path.join(os.path.dirname(__file__), p))
+Result = ul.device_registration.getDeviceStatus()
 
 class KBD_regression_test(unittest.TestCase):
     def setUp(self):
         desired_caps = {}
         desired_caps['platformName'] = 'Android'
-        desired_caps['platformVersion'] = '4.4'
-        desired_caps['deviceName'] = 'sch_i535-1919e009'
+        desired_caps['platformVersion'] = Result["Androidversion"]
+        desired_caps['deviceName'] = Result["SerialNo"]
         desired_caps['app'] = PATH('./KBD_apk/kBatteryDoctor_5.31_5310007_20160902_152436-world-release.apk')
         desired_caps['appPackage'] = 'com.ijinshan.kbatterydoctor_en'
 
@@ -131,6 +132,6 @@ if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(KBD_regression_test)
     #unittest.TextTestRunner(verbosity=2).run(suite)
     file = open(str(PATH('./KBD_result/' + str(time.strftime("%Y%m%d") + '.html'))) ,"wb")
-    runner = HTMLTestRunner.HTMLTestRunner(stream=file,title="KBD Automation (Python+Appium)",description="Automation test")
+    runner = HTMLTestRunner.HTMLTestRunner(stream=file,title="[KBD Automation] [Python+Appium] [Device: " + ' ' + Result["Manufacturer"] + ' ' + Result["Model"] + ' ' + Result["Brand"] + ']',description="[Platform Version: " + Result["Androidversion"] + ']' + '\n' + "[SDK version: " + Result["SDKversion"] + ']' + '\n' + "[Device S/N: " + Result["SerialNo"] + ']')
     runner.run(suite)
     file.close()
