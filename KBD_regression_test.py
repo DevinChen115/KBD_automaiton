@@ -5,7 +5,6 @@ import unittest
 from appium import webdriver
 
 from selenium.webdriver.common.by import By
-#from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
@@ -16,6 +15,7 @@ import HTMLTestRunner
 
 # Returns abs path relative to this file and not cwd
 PATH = lambda p: os.path.abspath(os.path.join(os.path.dirname(__file__), p))
+# Result = dict (Manufacturer,Model,Brand,Androidversion,SDKversion,SerialNo)
 Result = ul.device_registration.getDeviceStatus()
 
 class KBD_regression_test(unittest.TestCase):
@@ -24,7 +24,7 @@ class KBD_regression_test(unittest.TestCase):
         desired_caps['platformName'] = 'Android'
         desired_caps['platformVersion'] = Result["Androidversion"]
         desired_caps['deviceName'] = Result["SerialNo"]
-        desired_caps['app'] = PATH('./KBD_apk/kBatteryDoctor_5.31_5310007_20160902_152436-world-release.apk')
+        desired_caps['app'] = PATH('./KBD_apk/kBatteryDoctor_5.34_5340006_20160930_121658-world-release.apk')
         desired_caps['appPackage'] = 'com.ijinshan.kbatterydoctor_en'
 
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
@@ -33,7 +33,7 @@ class KBD_regression_test(unittest.TestCase):
     def tearDown(self):
         #end the session
         self.driver.quit()
-
+    
     def test_SaveTabOptimize(self):
         getDrainnumA = ""
         getDrainnumB = ""
@@ -107,26 +107,33 @@ class KBD_regression_test(unittest.TestCase):
             print("[PASS][Home Page]Get Battery Percentage done. HomePagePercent = " + str(HomePagePercent))
         else:
             self.assertTrue(False,"[FAIL][Home Page]Get Battery Percentage fail.")
-            
+
     def test_SaveTabHWbutton(self):
-        self.assertTrue(True)
-        """
+            
         #Click Save Tab
-        self.kbdutil.checkElClickable(el.SaveTab)
-        print("Check Save Tab done.")
-        self.kbdutil.clickEl(el.SaveTab)
-        print("Click Save Tab done.")
-        
-        #Get draining apps count A (Home page)
-        self.kbdutil.checkElVisible(el.SaveTabDrainnumA)
-        print("Query Home Page Drain num A done.")
-        getDrainnumA = self.kbdutil.getTextEL(el.SaveTabDrainnumA)
-        print("Get Home Page Drain num A done. getDrainnumA = " + str(getDrainnumA))
-        
-        element_to_tap = self.driver.find_element_by_xpath(<xpath_to_element_near_bottom_of_screen>)
-        element_to_drag_to = self.driver.find_element_by_xpath(<xpath_to_element_near_top_of_screen>)
-        self.driver.scroll(element_to_tap, element_to_drag_to)
-        """
+        if self.kbdutil.checkElClickable(el.SaveTab) == True:
+            self.kbdutil.clickEl(el.SaveTab)
+            print("[PASS][Home Page]Check Save Tab done.")
+        else:
+            self.assertTrue(False,"[FAIL][Home Page]Check Save Tab fail.")
+
+        #Check test case back to KBD Home successfully (Percentage show up)
+        if self.kbdutil.checkElVisible(el.SaveTabPercent) == True:
+            HomePagePercent = self.kbdutil.getTextEL(el.SaveTabPercent)
+            print("[PASS][Home Page]Get Battery Percentage done. HomePagePercent = " + str(HomePagePercent))
+        else:
+            self.assertTrue(False,"[FAIL][Home Page]Get Battery Percentage fail.")
+
+        #Scroll to Wifi Switch button
+        if self.kbdutil.scrollTo(el.SaveTabSwitchWifi) == True:
+            print("[PASS][Home Page]Scroll finish.")
+            if self.kbdutil.checkElVisible(el.SaveTabSwitchWifi) == True:
+                self.assertTrue(True,"[PASS][Home Page]Scroll to Get Switch WiFi button done.")
+            else:
+                self.assertTrue(False,"[FAIL][Home Page]Scroll to Get Switch WiFi button fail.")
+        else:
+            print("[FAIL][Home Page]Scroll tofind element fail.")
+
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(KBD_regression_test)

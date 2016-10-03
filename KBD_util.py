@@ -15,11 +15,11 @@ import KBD_element as el
 class device_registration():
     def getDeviceStatus():
         getadbState = subprocess.getoutput("adb get-state")
-        while getadbState != "device":
+        getadbStateA = getadbState.find("device")
+        if getadbStateA is not -1 :
+            print("adb connection is available to use. getadbState = " + getadbState)
+        else:
             print("adb connection is unavailable to use. getadbState = " + getadbState)
-            getadbKillServer = subprocess.getoutput("adb kill-server")
-            getadbState = subprocess.getoutput("adb get-state")
-        print("adb connection is available to use. getadbState = " + getadbState)
         getPropManufacturer = subprocess.getoutput("adb shell getprop ro.product.manufacturer")
         getPropModel = subprocess.getoutput("adb shell getprop ro.product.model")
         getPropBrand = subprocess.getoutput("adb shell getprop ro.product.brand")
@@ -68,3 +68,12 @@ class Util:
             return self.driver.find_element_by_id(rid).text
         except TimeoutException:
             print("Get element " + str(rid) + " Text Error.")
+    
+    def scrollTo(self, rid):
+        try:
+            self.driver.find_element_by_android_uiautomator('new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().resourceId(\"' + rid + '\").instance(0));')
+            return True
+        except TimeoutException:
+            print("Scroll to element " + str(rid) + " Timeout.")
+            return False
+        

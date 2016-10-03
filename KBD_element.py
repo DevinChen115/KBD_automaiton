@@ -108,23 +108,3 @@ ResultPageADFBSubscript = "com.ijinshan.kbatterydoctor_en:id/cmcm_fb_app_common_
 ResultPageSuperCardTitle = "com.ijinshan.kbatterydoctor_en:id/title" #SUPER OPTIMIZE
 ResultPageSuperCardText = "com.ijinshan.kbatterydoctor_en:id/description" #Force stop background apps
 ResultPageSuperCardButton = "com.ijinshan.kbatterydoctor_en:id/button" #LAUNCH
-
-
-"""
-sleep(8)
-
-#Go to Charging Tab
-clickKBDChargeTab = self.driver.find_element_by_id(el.ChargeTab).click()
-sleep(3)
-#Go to Mode Tab
-clickKBDModeTab = self.driver.find_element_by_id(el.ModeTab).click()
-sleep(3)
-#Go to Rank Tab
-clickKBDRankTab = self.driver.find_element_by_id(el.RankTab).click()
-sleep(3)
-        
-self.driver.back()
-sleep(0.5)
-self.driver.back()
-sleep(3)
-"""
