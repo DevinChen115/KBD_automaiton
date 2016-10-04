@@ -1,13 +1,14 @@
-import os, sys, time, fnmatch, smtplib, shutil, subprocess
-from time import sleep
-from datetime import date
+import os, time
+#import sys, fnmatch, smtplib, shutil, subprocess
+#from time import sleep
+#from datetime import date
 import unittest
 from appium import webdriver
 
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
+#from selenium.webdriver.common.by import By
+#from selenium.webdriver.support.ui import WebDriverWait
+#from selenium.webdriver.support import expected_conditions as EC
+#from selenium.common.exceptions import TimeoutException
 
 import KBD_util as ul
 import KBD_element as el
@@ -36,7 +37,7 @@ class KBD_regression_test(unittest.TestCase):
     
     def test_SaveTabOptimize(self):
         getDrainnumA = ""
-        getDrainnumB = ""
+        #getDrainnumB = ""
         ResultPageFCText = ""
         HomePagePercent = ""
 
