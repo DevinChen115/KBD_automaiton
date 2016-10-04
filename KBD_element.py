@@ -1,10 +1,11 @@
 """
 [Battery Doctor] 4 Tabs on the bottom.
 """
-SaveTab = "com.ijinshan.kbatterydoctor_en:id/radio_button0"
-ChargeTab = "com.ijinshan.kbatterydoctor_en:id/radio_button1"
-ModeTab = "com.ijinshan.kbatterydoctor_en:id/radio_button2"
-RankTab = "com.ijinshan.kbatterydoctor_en:id/radio_button3"
+BatteryDoctor = {}
+BatteryDoctor["SaveTab"] = "com.ijinshan.kbatterydoctor_en:id/radio_button0"
+BatteryDoctor["ChargeTab"] = "com.ijinshan.kbatterydoctor_en:id/radio_button1"
+BatteryDoctor["ModeTab"] = "com.ijinshan.kbatterydoctor_en:id/radio_button2"
+BatteryDoctor["RankTab"] = "com.ijinshan.kbatterydoctor_en:id/radio_button3"
 
 
 """
@@ -20,62 +21,64 @@ RankTab = "com.ijinshan.kbatterydoctor_en:id/radio_button3"
 #/Temperature Voltage Capacity
 #/Weather card
 """
+SaveTab = {}
 #/Main Fuction
-SaveTabTitle = "com.ijinshan.kbatterydoctor_en:id/name"
-SaveTabGiftBox = "com.ijinshan.kbatterydoctor_en:id/jump_url_img_default"
-SaveTabMenu = "com.ijinshan.kbatterydoctor_en:id/action_img_layout"
-SaveTabPercent = "com.ijinshan.kbatterydoctor_en:id/tv_battery_percent"
-SaveTabPhoneStatus = "com.ijinshan.kbatterydoctor_en:id/tv_phone_state"
-SaveTabDrainnumA = "com.ijinshan.kbatterydoctor_en:id/tv_phone_issues"
-SaveTabRemaining = "com.ijinshan.kbatterydoctor_en:id/remaining_time_area"
-SaveTabOptimize = "com.ijinshan.kbatterydoctor_en:id/btn_detection"
+SaveTab["Title"] = "com.ijinshan.kbatterydoctor_en:id/name"
+SaveTab["GiftBox"] = "com.ijinshan.kbatterydoctor_en:id/jump_url_img_default"
+SaveTab["Menu"] = "com.ijinshan.kbatterydoctor_en:id/action_img_layout"
+SaveTab["Percent"] = "com.ijinshan.kbatterydoctor_en:id/tv_battery_percent"
+SaveTab["PhoneStatus"] = "com.ijinshan.kbatterydoctor_en:id/tv_phone_state"
+SaveTab["DrainnumA"] = "com.ijinshan.kbatterydoctor_en:id/tv_phone_issues"
+SaveTab["Remaining"] = "com.ijinshan.kbatterydoctor_en:id/remaining_time_area"
+SaveTab["Optimize"] = "com.ijinshan.kbatterydoctor_en:id/btn_detection"
 #/AD
-SaveTabAD = "com.ijinshan.kbatterydoctor_en:id/context_layout"
+SaveTab["AD"] = "com.ijinshan.kbatterydoctor_en:id/context_layout"
 #/Locker promote card
-SaveTabLockerpromotecard = ""
+SaveTab["Lockerpromotecard"] = ""
 #/App usage info
-SaveTabAppUsageItem1 = "com.ijinshan.kbatterydoctor_en:id/drain_app_layout0"
-SaveTabAppUsageItem2 = "com.ijinshan.kbatterydoctor_en:id/drain_app_layout1"
+SaveTab["AppUsageItem1"] = "com.ijinshan.kbatterydoctor_en:id/drain_app_layout0"
+SaveTab["AppUsageItem2"] = "com.ijinshan.kbatterydoctor_en:id/drain_app_layout1"
 #/Power Remaining
-SaveTabPowerRemaining = "com.ijinshan.kbatterydoctor_en:id/call_3g_layout"
+SaveTab["PowerRemaining"] = "com.ijinshan.kbatterydoctor_en:id/call_3g_layout"
 #/HW button
-SaveTabSwitchWifi = "com.ijinshan.kbatterydoctor_en:id/shortcut_linear_wifi"
-SaveTabSwitchBT = "com.ijinshan.kbatterydoctor_en:id/shortcut_linear_bluetooth"
-SaveTabSwitchScreenLight = "com.ijinshan.kbatterydoctor_en:id/shortcut_linear_screen"
-SaveTabSwitchScreenTimeout = "com.ijinshan.kbatterydoctor_en:id/shortcut_linear_screen_timeout"
-SaveTabSwitchVolume = "com.ijinshan.kbatterydoctor_en:id/shortcut_linear_volume"
+SaveTab["SwitchWifi"] = "com.ijinshan.kbatterydoctor_en:id/shortcut_linear_wifi"
+SaveTab["SwitchBT"] = "com.ijinshan.kbatterydoctor_en:id/shortcut_linear_bluetooth"
+SaveTab["SwitchScreenLight"] = "com.ijinshan.kbatterydoctor_en:id/shortcut_linear_screen"
+SaveTab["SwitchScreenTimeout"] = "com.ijinshan.kbatterydoctor_en:id/shortcut_linear_screen_timeout"
+SaveTab["SwitchVolume"] = "com.ijinshan.kbatterydoctor_en:id/shortcut_linear_volume"
 #/Battery History
-SaveTabBatteryHistory = "com.ijinshan.kbatterydoctor_en:id/batteryInfoGraph"
+SaveTab["BatteryHistory"] = "com.ijinshan.kbatterydoctor_en:id/batteryInfoGraph"
 #/Temperature Voltage Capacity
-SaveTabTemperature = "com.ijinshan.kbatterydoctor_en:id/tv_bottom_info_temp_value"
-SaveTabVoltage = "com.ijinshan.kbatterydoctor_en:id/tv_bottom_info_voltage_value"
-SaveTabCapacity = "com.ijinshan.kbatterydoctor_en:id/tv_bottom_info_tech_value"
+SaveTab["Temperature"] = "com.ijinshan.kbatterydoctor_en:id/tv_bottom_info_temp_value"
+SaveTab["Voltage"] = "com.ijinshan.kbatterydoctor_en:id/tv_bottom_info_voltage_value"
+SaveTab["Capacity"] = "com.ijinshan.kbatterydoctor_en:id/tv_bottom_info_tech_value"
 #/Weather card
-SaveTabWeatherCard = "com.ijinshan.kbatterydoctor_en:id/card_content"
-SaveTabWeatherCity = "com.ijinshan.kbatterydoctor_en:id/title_tv"
-SaveTabWeatherToday = "com.ijinshan.kbatterydoctor_en:id/weather_now"
-SaveTabWeatherTomorrow = "com.ijinshan.kbatterydoctor_en:id/weather_tomorrow"
+SaveTab["WeatherCard"] = "com.ijinshan.kbatterydoctor_en:id/card_content"
+SaveTab["WeatherCity"] = "com.ijinshan.kbatterydoctor_en:id/title_tv"
+SaveTab["WeatherToday"] = "com.ijinshan.kbatterydoctor_en:id/weather_now"
+SaveTab["WeatherTomorrow"] = "com.ijinshan.kbatterydoctor_en:id/weather_tomorrow"
 #/Floating window
-SaveTabFloatingFull = "com.ijinshan.kbatterydoctor_en:id/rating_body"
-SaveTabFloatingX = "com.ijinshan.kbatterydoctor_en:id/rating_icon_close"
-SaveTabFloatingTitle = "com.ijinshan.kbatterydoctor_en:id/gp_shocks" #Congratulations!
-SaveTabFloatingSubTitle = "com.ijinshan.kbatterydoctor_en:id/summary" #Extended 8 m successfully
-SaveTabFloatingAskStar = "com.ijinshan.kbatterydoctor_en:id/ask_for_stars" #Impressed? Is that worth a 5-star rating?
-SaveTabFloatingComplainButton = "com.ijinshan.kbatterydoctor_en:id/button_feedback" #COMPLAIN
-SaveTabFloatingRate5starButton = "com.ijinshan.kbatterydoctor_en:id/button" #RATE 5-STARS
-SaveTabFloatingOutsideArea = "com.ijinshan.kbatterydoctor_en:id/dialog_outside_layout"
+SaveTab["FloatingFull"] = "com.ijinshan.kbatterydoctor_en:id/rating_body"
+SaveTab["FloatingX"] = "com.ijinshan.kbatterydoctor_en:id/rating_icon_close"
+SaveTab["FloatingTitle"] = "com.ijinshan.kbatterydoctor_en:id/gp_shocks" #Congratulations!
+SaveTab["FloatingSubTitle"] = "com.ijinshan.kbatterydoctor_en:id/summary" #Extended 8 m successfully
+SaveTab["FloatingAskStar"] = "com.ijinshan.kbatterydoctor_en:id/ask_for_stars" #Impressed? Is that worth a 5-star rating?
+SaveTab["FloatingComplainButton"] = "com.ijinshan.kbatterydoctor_en:id/button_feedback" #COMPLAIN
+SaveTab["FloatingRate5starButton"] = "com.ijinshan.kbatterydoctor_en:id/button" #RATE 5-STARS
+SaveTab["FloatingOutsideArea"] = "com.ijinshan.kbatterydoctor_en:id/dialog_outside_layout"
 
 """
 [Scanning Page] 1st Tab Save Tab press Optimize then go to scanning page.
 """
-ScanPageBackkey = "com.ijinshan.kbatterydoctor_en:id/opt_action_back"
-ScanPageTitle = "com.ijinshan.kbatterydoctor_en:id/opt_title"
-ScanPageH = "com.ijinshan.kbatterydoctor_en:id/hide_h"
-ScanPageM = "com.ijinshan.kbatterydoctor_en:id/min"
-ScanPagePhoneStatus = "com.ijinshan.kbatterydoctor_en:id/tv_phone_status"
-ScanPageProgress = "com.ijinshan.kbatterydoctor_en:id/id_optimize_scan_sub_title"
-ScanPageDrainnumB = "com.ijinshan.kbatterydoctor_en:id/optimize_software_item_count"
-ScanPageDrainnumText = "com.ijinshan.kbatterydoctor_en:id/optimize_software_item"
+ScanPage = {}
+ScanPage["Backkey"] = "com.ijinshan.kbatterydoctor_en:id/opt_action_back"
+ScanPage["Title"] = "com.ijinshan.kbatterydoctor_en:id/opt_title"
+ScanPage["H"] = "com.ijinshan.kbatterydoctor_en:id/hide_h"
+ScanPage["M"] = "com.ijinshan.kbatterydoctor_en:id/min"
+ScanPage["PhoneStatus"] = "com.ijinshan.kbatterydoctor_en:id/tv_phone_status"
+ScanPage["Progress"] = "com.ijinshan.kbatterydoctor_en:id/id_optimize_scan_sub_title"
+ScanPage["DrainnumB"] = "com.ijinshan.kbatterydoctor_en:id/optimize_software_item_count"
+ScanPage["DrainnumText"] = "com.ijinshan.kbatterydoctor_en:id/optimize_software_item"
 
 
 """
@@ -85,26 +88,27 @@ ScanPageDrainnumText = "com.ijinshan.kbatterydoctor_en:id/optimize_software_item
 #/Fisrt card
 #/AD
 """
+ResultPage = {}
 #/Pop up Window to add shortcut
-ResultPagePopupWindowX = "com.ijinshan.kbatterydoctor_en:id/guide_btn_close"
-ResultPagePopupWindowText = "com.ijinshan.kbatterydoctor_en:id/guide_app_caption" #Create a 1 Tap shortcut to use SAVE POWER to extend your battery easily.
-ResultPagePopupWindowNo = "com.ijinshan.kbatterydoctor_en:id/guide_btn_no"
-ResultPagePopupWindowTryitnow = "com.ijinshan.kbatterydoctor_en:id/guide_btn_try_it"
+ResultPage["PopupWindowX"] = "com.ijinshan.kbatterydoctor_en:id/guide_btn_close"
+ResultPage["PopupWindowText"] = "com.ijinshan.kbatterydoctor_en:id/guide_app_caption" #Create a 1 Tap shortcut to use SAVE POWER to extend your battery easily.
+ResultPage["PopupWindowNo"] = "com.ijinshan.kbatterydoctor_en:id/guide_btn_no"
+ResultPage["PopupWindowTryitnow"] = "com.ijinshan.kbatterydoctor_en:id/guide_btn_try_it"
 #/Title
-ResultPageBackkey = "com.ijinshan.kbatterydoctor_en:id/opt_action_back"
-ResultPageTitleText = "com.ijinshan.kbatterydoctor_en:id/opt_title" #Save Power
-ResultPageMenu = "com.ijinshan.kbatterydoctor_en:id/opt_action_more"
+ResultPage["Backkey"] = "com.ijinshan.kbatterydoctor_en:id/opt_action_back"
+ResultPage["TitleText"] = "com.ijinshan.kbatterydoctor_en:id/opt_title" #Save Power
+ResultPage["Menu"] = "com.ijinshan.kbatterydoctor_en:id/opt_action_more"
 #/Fisrt card
-ResultPageFisrtCardText = "com.ijinshan.kbatterydoctor_en:id/tip" #Remaining time  21h 33m
+ResultPage["FisrtCardText"] = "com.ijinshan.kbatterydoctor_en:id/tip" #Remaining time  21h 33m
 #/AD/FB
-ResultPageADFB = "com.ijinshan.kbatterydoctor_en:id/cmcm_fb_result_main_mix_layout"
-ResultPageADFBTopTitle = "com.ijinshan.kbatterydoctor_en:id/cmcm_fb_top_title" #Recommended for you
-ResultPageADFBTitle = "com.ijinshan.kbatterydoctor_en:id/cmcm_fb_app_title" #UpLive
-ResultPageADFBButton = "com.ijinshan.kbatterydoctor_en:id/cmcm_fb_app_btn" #Install Now
-ResultPageADFBDownloadnum = "com.ijinshan.kbatterydoctor_en:id/cmcm_fb_app_downloads" #FREE · 544,625 people use this
-ResultPageADFBDescribe = "com.ijinshan.kbatterydoctor_en:id/cmcm_fb_app_desc"
-ResultPageADFBSubscript = "com.ijinshan.kbatterydoctor_en:id/cmcm_fb_app_common_tag" #角標
+ResultPage["ADFB"] = "com.ijinshan.kbatterydoctor_en:id/cmcm_fb_result_main_mix_layout"
+ResultPage["ADFBTopTitle"] = "com.ijinshan.kbatterydoctor_en:id/cmcm_fb_top_title" #Recommended for you
+ResultPage["ADFBTitle"] = "com.ijinshan.kbatterydoctor_en:id/cmcm_fb_app_title" #UpLive
+ResultPage["ADFBButton"] = "com.ijinshan.kbatterydoctor_en:id/cmcm_fb_app_btn" #Install Now
+ResultPage["ADFBDownloadnum"] = "com.ijinshan.kbatterydoctor_en:id/cmcm_fb_app_downloads" #FREE · 544,625 people use this
+ResultPage["ADFBDescribe"] = "com.ijinshan.kbatterydoctor_en:id/cmcm_fb_app_desc"
+ResultPage["ADFBSubscript"] = "com.ijinshan.kbatterydoctor_en:id/cmcm_fb_app_common_tag" #角標
 #/Super Optimize
-ResultPageSuperCardTitle = "com.ijinshan.kbatterydoctor_en:id/title" #SUPER OPTIMIZE
-ResultPageSuperCardText = "com.ijinshan.kbatterydoctor_en:id/description" #Force stop background apps
-ResultPageSuperCardButton = "com.ijinshan.kbatterydoctor_en:id/button" #LAUNCH
+ResultPage["SuperCardTitle"] = "com.ijinshan.kbatterydoctor_en:id/title" #SUPER OPTIMIZE
+ResultPage["SuperCardText"] = "com.ijinshan.kbatterydoctor_en:id/description" #Force stop background apps
+ResultPage["SuperCardButton"] = "com.ijinshan.kbatterydoctor_en:id/button" #LAUNCH

@@ -41,22 +41,22 @@ class KBD_regression_test(unittest.TestCase):
         HomePagePercent = ""
 
         #Click Save Tab
-        if self.kbdutil.checkElClickable(el.SaveTab) == True:
-            self.kbdutil.clickEl(el.SaveTab)
+        if self.kbdutil.checkElClickable(el.BatteryDoctor["SaveTab"]) == True:
+            self.kbdutil.clickEl(el.BatteryDoctor["SaveTab"])
             print("[PASS][Home Page]Check Save Tab done.")
         else:
             self.assertTrue(False,"[FAIL][Home Page]Check Save Tab fail.")
 
         #Get draining apps count A (Home page)
-        if self.kbdutil.checkElVisible(el.SaveTabDrainnumA) == True:
-            getDrainnumA = self.kbdutil.getTextEL(el.SaveTabDrainnumA)
+        if self.kbdutil.checkElVisible(el.SaveTab["DrainnumA"]) == True:
+            getDrainnumA = self.kbdutil.getTextEL(el.SaveTab["DrainnumA"])
             print("[PASS][Home Page]Get Home Page Drain num A done. getDrainnumA = " + str(getDrainnumA))
         else:
             self.assertTrue(False,"[FAIL][Home Page]Get Home Page Drain num A fail.")
 
         #Click Save Tab Optimize button
-        if self.kbdutil.checkElClickable(el.SaveTabOptimize) == True:
-            self.kbdutil.clickEl(el.SaveTabOptimize)
+        if self.kbdutil.checkElClickable(el.SaveTab["Optimize"]) == True:
+            self.kbdutil.clickEl(el.SaveTab["Optimize"])
             print("[PASS][Home Page]Click Optimize button done.")
         else:
             self.assertTrue(False,"[FAIL][Home Page]Click Optimize button fail.")
@@ -64,8 +64,8 @@ class KBD_regression_test(unittest.TestCase):
         """
         #Get draining apps count B (scanning page)
         try:
-            if self.kbdutil.checkElPresence(el.ScanPageDrainnumB) == True:
-                getDrainnumB = self.kbdutil.getTextEL(el.ScanPageDrainnumB)
+            if self.kbdutil.checkElPresence(el.ScanPage["DrainnumB"]) == True:
+                getDrainnumB = self.kbdutil.getTextEL(el.ScanPage["DrainnumB"])
                 self.assertTrue(True,"[PASS][Scan Page]Get Drain num B done. getDrainnumB = " + str(getDrainnumB))
             else:
                 self.assertTrue(False,"[FAIL][Scan Page]Get Drain num B fail.")
@@ -74,36 +74,36 @@ class KBD_regression_test(unittest.TestCase):
         """
 
         #Check and Click X of floating window if need
-        if self.kbdutil.checkElClickable(el.ResultPagePopupWindowTryitnow) == True:
-            self.kbdutil.clickEl(el.ResultPagePopupWindowTryitnow)
+        if self.kbdutil.checkElClickable(el.ResultPage["PopupWindowTryitnow"]) == True:
+            self.kbdutil.clickEl(el.ResultPage["PopupWindowTryitnow"])
             print("[PASS][Result Page]Check and Click floating window Tryitnow done. It's 1st time enter to Result Page.")
         else:
             print("[PASS][Result Page]Floating window didn't exist. It's 2nd time above enter to Result Page.")
 
         #Make sure KBD in Result Page
-        if self.kbdutil.checkElVisible(el.ResultPageFisrtCardText) == True:
-            ResultPageFCText = self.kbdutil.getTextEL(el.ResultPageFisrtCardText)
+        if self.kbdutil.checkElVisible(el.ResultPage["FisrtCardText"]) == True:
+            ResultPageFCText = self.kbdutil.getTextEL(el.ResultPage["FisrtCardText"])
             self.assertTrue(True,"[PASS][Result Page]Get First Card Text done. ResultPageFCText = " + str(ResultPageFCText))
         else:
             self.assertTrue(False,"[FAIL][Result Page]Get Result Page First Card Text fail.")
         
         #Press Back to Home page
-        if self.kbdutil.checkElClickable(el.ResultPageBackkey) == True:
-            self.kbdutil.clickEl(el.ResultPageBackkey)
+        if self.kbdutil.checkElClickable(el.ResultPage["Backkey"]) == True:
+            self.kbdutil.clickEl(el.ResultPage["Backkey"])
             print("[PASS][Result Page]Click Back key to Home done.")
         else:
             self.assertTrue(False,"[FAIL][Result Page]Click Back key to Home fail.")
 
         #Check and Click X of Home floating window if need
-        if self.kbdutil.checkElClickable(el.SaveTabFloatingX) == True:
-            self.kbdutil.clickEl(el.SaveTabFloatingX)
+        if self.kbdutil.checkElClickable(el.SaveTab["FloatingX"]) == True:
+            self.kbdutil.clickEl(el.SaveTab["FloatingX"])
             print("[PASS][Home Page]Check and Click floating window X done. It's 1st time enter to Home Page.")
         else:
             print("[PASS][Home Page]Floating window X didn't exist. It's 2nd time above enter to Home Page.")
 
         #Check test case back to KBD Home successfully (Percentage show up)
-        if self.kbdutil.checkElVisible(el.SaveTabPercent) == True:
-            HomePagePercent = self.kbdutil.getTextEL(el.SaveTabPercent)
+        if self.kbdutil.checkElVisible(el.SaveTab["Percent"]) == True:
+            HomePagePercent = self.kbdutil.getTextEL(el.SaveTab["Percent"])
             print("[PASS][Home Page]Get Battery Percentage done. HomePagePercent = " + str(HomePagePercent))
         else:
             self.assertTrue(False,"[FAIL][Home Page]Get Battery Percentage fail.")
@@ -111,23 +111,23 @@ class KBD_regression_test(unittest.TestCase):
     def test_SaveTabHWbutton(self):
             
         #Click Save Tab
-        if self.kbdutil.checkElClickable(el.SaveTab) == True:
-            self.kbdutil.clickEl(el.SaveTab)
+        if self.kbdutil.checkElClickable(el.BatteryDoctor["SaveTab"]) == True:
+            self.kbdutil.clickEl(el.BatteryDoctor["SaveTab"])
             print("[PASS][Home Page]Check Save Tab done.")
         else:
             self.assertTrue(False,"[FAIL][Home Page]Check Save Tab fail.")
 
         #Check test case back to KBD Home successfully (Percentage show up)
-        if self.kbdutil.checkElVisible(el.SaveTabPercent) == True:
-            HomePagePercent = self.kbdutil.getTextEL(el.SaveTabPercent)
+        if self.kbdutil.checkElVisible(el.SaveTab["Percent"]) == True:
+            HomePagePercent = self.kbdutil.getTextEL(el.SaveTab["Percent"])
             print("[PASS][Home Page]Get Battery Percentage done. HomePagePercent = " + str(HomePagePercent))
         else:
             self.assertTrue(False,"[FAIL][Home Page]Get Battery Percentage fail.")
 
         #Scroll to Wifi Switch button
-        if self.kbdutil.scrollTo(el.SaveTabSwitchWifi) == True:
+        if self.kbdutil.scrollTo(el.SaveTab["SwitchWifi"]) == True:
             print("[PASS][Home Page]Scroll finish.")
-            if self.kbdutil.checkElVisible(el.SaveTabSwitchWifi) == True:
+            if self.kbdutil.checkElVisible(el.SaveTab["SwitchWifi"]) == True:
                 self.assertTrue(True,"[PASS][Home Page]Scroll to Get Switch WiFi button done.")
             else:
                 self.assertTrue(False,"[FAIL][Home Page]Scroll to Get Switch WiFi button fail.")
