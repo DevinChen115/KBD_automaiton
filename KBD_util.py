@@ -76,4 +76,28 @@ class Util:
         except TimeoutException:
             print("Scroll to element " + str(rid) + " Timeout.")
             return False
-        
+    
+
+    def waitUntilAndGetElement(self, type, key, timeout=3):
+        try:
+            if(type == 'name'):
+                ele = WebDriverWait(self.driver,timeout).until(
+                    EC.visibility_of_element_located((By.Name,key))
+                )
+                return ele
+            if(type == 'id'):
+                ele = WebDriverWait(self.driver,timeout).until(
+                    EC.visibility_of_element_located((By.ID,key))
+                )
+                return ele
+        except:
+            #return False
+            raise
+
+    def scrollUntilGetElement(self, type, key):
+        if(type == 'text'):
+            selector = 'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"'+ key +'\").instance(0));'
+        if(type == "id"):
+            selector = 'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().resourceId(\"'+ key +'\").instance(0));'
+        return self.driver.find_element_by_android_uiautomator(selector)
+

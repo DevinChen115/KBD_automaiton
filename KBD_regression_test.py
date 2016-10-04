@@ -134,6 +134,23 @@ class KBD_regression_test(unittest.TestCase):
         else:
             print("[FAIL][Home Page]Scroll tofind element fail.")
 
+    def test_firstExecute_have_rating(self):
+        try:
+            savePowerEle = self.kbdutil.waitUntilAndGetElement("id",el.BatteryDoctor["SaveTab"],20)
+            savePowerEle.click()
+            oneTapSavePowerBtnEle = self.kbdutil.waitUntilAndGetElement("id",el.SaveTab["Optimize"])
+            oneTapSavePowerBtnEle.click()
+            #restWordingEle = self.util.waitUntilAndGetElement("id",config.resultPage['restWording'],5)
+            guide_btn_close = self.kbdutil.waitUntilAndGetElement("id",el.ResultPage["PopupWindowX"],5)
+            guide_btn_close.click()
+            backEle = self.kbdutil.waitUntilAndGetElement("id",el.ResultPage["Backkey"])
+            backEle.click()
+            if self.kbdutil.checkElVisible(el.SaveTab["FloatingFull"]) == True:
+            #ratingEle = self.kbdutil.waitUntilAndGetElement("id",el.SaveTab["FloatingFull"])
+                self.assertTrue(True)
+        except:
+            self.assertTrue(False)
+
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(KBD_regression_test)
