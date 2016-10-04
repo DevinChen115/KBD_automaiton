@@ -61,18 +61,6 @@ class KBD_regression_test(unittest.TestCase):
         else:
             self.assertTrue(False,"[FAIL][Home Page]Click Optimize button fail.")
         
-        """
-        #Get draining apps count B (scanning page)
-        try:
-            if self.kbdutil.checkElPresence(el.ScanPage["DrainnumB"]) == True:
-                getDrainnumB = self.kbdutil.getTextEL(el.ScanPage["DrainnumB"])
-                self.assertTrue(True,"[PASS][Scan Page]Get Drain num B done. getDrainnumB = " + str(getDrainnumB))
-            else:
-                self.assertTrue(False,"[FAIL][Scan Page]Get Drain num B fail.")
-        except:
-            self.assertTrue(False,"[FAIL][Scan Page]Get getDrainnumB Text fail.")
-        """
-
         #Check and Click X of floating window if need
         if self.kbdutil.checkElClickable(el.ResultPage["PopupWindowTryitnow"]) == True:
             self.kbdutil.clickEl(el.ResultPage["PopupWindowTryitnow"])
@@ -126,13 +114,16 @@ class KBD_regression_test(unittest.TestCase):
 
         #Scroll to Wifi Switch button
         if self.kbdutil.scrollTo(el.SaveTab["SwitchWifi"]) == True:
-            print("[PASS][Home Page]Scroll finish.")
-            if self.kbdutil.checkElVisible(el.SaveTab["SwitchWifi"]) == True:
-                self.assertTrue(True,"[PASS][Home Page]Scroll to Get Switch WiFi button done.")
-            else:
-                self.assertTrue(False,"[FAIL][Home Page]Scroll to Get Switch WiFi button fail.")
+            print("[PASS][Home Page]Scroll to Get Switch WiFi button done.")
         else:
-            print("[FAIL][Home Page]Scroll tofind element fail.")
+            self.assertTrue(False,"[FAIL][Home Page]Scroll to Get Switch WiFi button fail.")
+
+        #Test WiFi button
+        if self.kbdutil.checkElVisible(el.SaveTab["SwitchWifi"]) == True:
+            self.kbdutil.clickEl(el.SaveTab["SwitchWifi"])
+            print("[PASS][Home Page]Scroll to Get Switch WiFi button done.")
+        else:
+            self.assertTrue(False,"[FAIL][Home Page]Scroll to Get Switch WiFi button fail.")
 
     def test_firstExecute_have_rating(self):
         try:
