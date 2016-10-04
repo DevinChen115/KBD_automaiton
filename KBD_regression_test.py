@@ -28,7 +28,7 @@ class KBD_regression_test(unittest.TestCase):
         desired_caps['appPackage'] = 'com.ijinshan.kbatterydoctor_en'
 
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
-        self.kbdutil = ul.Util(self.driver)
+        self.kbdutil = ul.Util(self.driver,os.getcwd()+"/screenshots")
     
     def tearDown(self):
         #end the session
@@ -140,13 +140,11 @@ class KBD_regression_test(unittest.TestCase):
             savePowerEle.click()
             oneTapSavePowerBtnEle = self.kbdutil.waitUntilAndGetElement("id",el.SaveTab["Optimize"])
             oneTapSavePowerBtnEle.click()
-            #restWordingEle = self.util.waitUntilAndGetElement("id",config.resultPage['restWording'],5)
             guide_btn_close = self.kbdutil.waitUntilAndGetElement("id",el.ResultPage["PopupWindowX"],5)
             guide_btn_close.click()
             backEle = self.kbdutil.waitUntilAndGetElement("id",el.ResultPage["Backkey"])
             backEle.click()
             if self.kbdutil.checkElVisible(el.SaveTab["FloatingFull"]) == True:
-            #ratingEle = self.kbdutil.waitUntilAndGetElement("id",el.SaveTab["FloatingFull"])
                 self.assertTrue(True)
         except:
             self.assertTrue(False)
