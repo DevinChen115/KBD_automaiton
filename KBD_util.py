@@ -105,20 +105,22 @@ class Util:
             selector = 'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().resourceId(\"'+ key +'\").instance(0));'
         return self.driver.find_element_by_android_uiautomator(selector)
 
+
     def screenshot(self, name):
-    screenshot_name = str(self.screenshot_count) + "_" + name + ".png" 
-    self.log ("Taking screenshot: " + self.screenshot_dir + "/" + screenshot_name)
-    # on Android, switching context to NATIVE_APP for screenshot
-    # taking to get screenshots also stored to Testdroid Cloud
-    # device run view. After screenshot switching back to
-    # WEBVIEW. Works ok for Safari too.
-    orig_context = self.driver.current_context
-    self.driver.switch_to.context("NATIVE_APP")
-    self.driver.save_screenshot(self.screenshot_dir + "/" + screenshot_name)
-    # only change context if originally context was WEBVIEW
-    if orig_context not in self.driver.current_context:
-        self.driver.switch_to.context("WEBVIEW")
-    self.screenshot_count += 1
+        screenshot_name = str(self.screenshot_count) + "_" + name + ".png" 
+        self.log ("Taking screenshot: " + self.screenshot_dir + "/" + screenshot_name)
+        # on Android, switching context to NATIVE_APP for screenshot
+        # taking to get screenshots also stored to Testdroid Cloud
+        # device run view. After screenshot switching back to
+        # WEBVIEW. Works ok for Safari too.
+        orig_context = self.driver.current_context
+        self.driver.switch_to.context("NATIVE_APP")
+        self.driver.save_screenshot(self.screenshot_dir + "/" + screenshot_name)
+        # only change context if originally context was WEBVIEW
+        if orig_context not in self.driver.current_context:
+            self.driver.switch_to.context("WEBVIEW")
+        self.screenshot_count += 1
+
 
     def log(self, msg):
         print (time.strftime("%H:%M:%S") + ": " + msg)

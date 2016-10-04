@@ -12,6 +12,7 @@ from appium import webdriver
 
 import KBD_util as ul
 import KBD_element as el
+import Other_element as el_other
 import HTMLTestRunner
 
 # Returns abs path relative to this file and not cwd
@@ -72,6 +73,7 @@ class KBD_regression_test(unittest.TestCase):
         #Make sure KBD in Result Page
         if self.kbdutil.checkElVisible(el.ResultPage["FisrtCardText"]) == True:
             ResultPageFCText = self.kbdutil.getTextEL(el.ResultPage["FisrtCardText"])
+            #ResultPageFC = self.kbdutil.waitUntilAndGetElement("id",el.ResultPage["FisrtCardText"])
             self.assertTrue(True,"[PASS][Result Page]Get First Card Text done. ResultPageFCText = " + str(ResultPageFCText))
         else:
             self.assertTrue(False,"[FAIL][Result Page]Get Result Page First Card Text fail.")
@@ -121,10 +123,17 @@ class KBD_regression_test(unittest.TestCase):
 
         #Test WiFi button
         if self.kbdutil.checkElVisible(el.SaveTab["SwitchWifi"]) == True:
+            subprocess.getoutput("adb shell am start -n com.android.settings/.wifi.WifiStatusTest")
+            WiFiStatusA = self.kbdutil.getTextEL(el_other.WifiStatusTest["State"])
+            self.driver.back()
             self.kbdutil.clickEl(el.SaveTab["SwitchWifi"])
-            print("[PASS][Home Page]Scroll to Get Switch WiFi button done.")
+            subprocess.getoutput("adb shell am start -n com.android.settings/.wifi.WifiStatusTest")
+            WiFiStatusB = self.kbdutil.getTextEL(el_other.WifiStatusTest["State"])
+            if WiFiStatusB == "Disabled":
+                self.kbdutil.clickEl(el.SaveTab["SwitchWifi"])
+            print("[PASS][Home Page]Test Switch WiFi button done.")
         else:
-            self.assertTrue(False,"[FAIL][Home Page]Scroll to Get Switch WiFi button fail.")
+            self.assertTrue(False,"[FAIL][Home Page]Test Switch WiFi button fail.")
 
     def test_firstExecute_have_rating(self):
         try:
