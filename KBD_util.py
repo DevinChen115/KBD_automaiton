@@ -101,12 +101,18 @@ class Util:
             self.logv2(str,"FAIL")
             raise
 
-    def scrollUntilGetElement(self, type, key):
+    def scrollUntilGetElement(self, type, key,str=""):
         if(type == 'text'):
             selector = 'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"'+ key +'\").instance(0));'
         if(type == "id"):
             selector = 'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().resourceId(\"'+ key +'\").instance(0));'
-        return self.driver.find_element_by_android_uiautomator(selector)
+        try:
+            ele = self.driver.find_element_by_android_uiautomator(selector)
+            self.logv2(str,"done")
+            return ele
+        except:
+            self.logv2(str, "FAIL")
+            raise
 
 
     def screenshot(self, name):
