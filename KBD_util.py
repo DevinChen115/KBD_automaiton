@@ -1,4 +1,5 @@
 import time
+import os
 import subprocess
 # from appium import webdriver
 from selenium.webdriver.common.by import By
@@ -37,6 +38,8 @@ class Util:
         self.driver = mDevice
         # self.screenshot_count = 1
         self.screenshot_dir = dir
+        if not os.path.exists(self.screenshot_dir):
+            os.makedirs(self.screenshot_dir)
 
     def checkElClickable(self, rid):
         try:

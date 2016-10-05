@@ -18,8 +18,6 @@ def PATH(p):
 
 
 def checkFolder():
-        if not os.path.exists(os.getcwd() + "/screenshots"):
-            os.makedirs(os.getcwd() + "/screenshots")
         if not os.path.exists(os.getcwd() + "/KBD_result"):
             os.makedirs(os.getcwd() + "/KBD_result")
 
