@@ -1,4 +1,3 @@
-import os
 import time
 import subprocess
 # from appium import webdriver
@@ -38,8 +37,6 @@ class Util:
         self.driver = mDevice
         # self.screenshot_count = 1
         self.screenshot_dir = dir
-        if not os.path.exists(self.screenshot_dir):
-            os.makedirs(self.screenshot_dir)
 
     def checkElClickable(self, rid):
         try:
@@ -85,6 +82,18 @@ class Util:
         except TimeoutException:
             print("Scroll to element " + str(rid) + " Timeout.")
             return False
+
+    def isNotMatch(self, resultA, resultB, str=""):
+        try:
+            if(resultA != resultB):
+                self.logv2(str, "done")
+                return True
+            else:
+                self.logv2(str, "FAIL")
+                return False
+        except:
+            self.logv2(str, "FAIL")
+            raise
 
     def waitUntilAndGetElement(self, type, key, str="", timeout=3):
         try:
@@ -139,5 +148,5 @@ class Util:
 
     def logv2(self, msg, type):
         if (msg != ""):
-            str = '{0:-<30}'.format(msg)
+            str = '{0:-<60}'.format(msg)
             print(str + type)
