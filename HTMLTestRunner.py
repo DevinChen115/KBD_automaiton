@@ -777,7 +777,7 @@ class HTMLTestRunner(Template_mixin):
 
         script = self.REPORT_TEST_OUTPUT_TMPL % dict(
             id = tid,
-            output = saxutils.escape(uo+ue),
+            output = "\n"+saxutils.escape(uo+ue),
         )
 
         row = tmpl % dict(
