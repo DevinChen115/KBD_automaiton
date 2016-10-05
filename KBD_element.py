@@ -66,6 +66,8 @@ SaveTab["FloatingAskStar"] = "com.ijinshan.kbatterydoctor_en:id/ask_for_stars" #
 SaveTab["FloatingComplainButton"] = "com.ijinshan.kbatterydoctor_en:id/button_feedback" #COMPLAIN
 SaveTab["FloatingRate5starButton"] = "com.ijinshan.kbatterydoctor_en:id/button" #RATE 5-STARS
 SaveTab["FloatingOutsideArea"] = "com.ijinshan.kbatterydoctor_en:id/dialog_outside_layout"
+#/AvailableTime
+SaveTab["AvailableTimeMovie"] = "com.ijinshan.kbatterydoctor_en:id/play_movie_icon"
 
 """
 [Scanning Page] 1st Tab Save Tab press Optimize then go to scanning page.
@@ -112,3 +114,8 @@ ResultPage["ADFBSubscript"] = "com.ijinshan.kbatterydoctor_en:id/cmcm_fb_app_com
 ResultPage["SuperCardTitle"] = "com.ijinshan.kbatterydoctor_en:id/title" #SUPER OPTIMIZE
 ResultPage["SuperCardText"] = "com.ijinshan.kbatterydoctor_en:id/description" #Force stop background apps
 ResultPage["SuperCardButton"] = "com.ijinshan.kbatterydoctor_en:id/button" #LAUNCH
+
+Availabletime = {}
+Availabletime['2GIcon'] = "com.ijinshan.kbatterydoctor_en:id/call_2g_icon"
+Availabletime['2GTitle'] = "com.ijinshan.kbatterydoctor_en:id/call_2g"
+Availabletime['2GAvailable'] = "com.ijinshan.kbatterydoctor_en:id/call_2g_duration"

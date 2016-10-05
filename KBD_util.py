@@ -25,14 +25,14 @@ class device_registration():
         getPropBrand = subprocess.getoutput("adb shell getprop ro.product.brand")
         getPropAndroidversion = subprocess.getoutput("adb shell getprop ro.build.version.release")
         getPropSDKversion = subprocess.getoutput("adb shell getprop ro.build.version.sdk")
-        getPropSerialNo = subprocess.getoutput("adb shell getprop ro.boot.serialno")
+        getPropSerialNo = subprocess.getoutput("adb shell getprop ro.serialno")
         Result = dict (Manufacturer=getPropManufacturer,Model=getPropModel,Brand=getPropBrand,Androidversion=getPropAndroidversion,SDKversion=getPropSDKversion,SerialNo=getPropSerialNo)
         return Result
 
 class Util:
     def __init__(self, mDevice, dir):
         self.driver = mDevice
-        self.screenshot_count = 1
+        #self.screenshot_count = 1
         self.screenshot_dir = dir
         if not os.path.exists(self.screenshot_dir):
             os.makedirs(self.screenshot_dir)
@@ -82,20 +82,23 @@ class Util:
             return False
     
 
-    def waitUntilAndGetElement(self, type, key, timeout=3):
+    def waitUntilAndGetElement(self, type, key, str="", timeout=3):
         try:
             if(type == 'name'):
                 ele = WebDriverWait(self.driver,timeout).until(
                     EC.visibility_of_element_located((By.Name,key))
                 )
+                self.logv2(str,"done")
                 return ele
             if(type == 'id'):
                 ele = WebDriverWait(self.driver,timeout).until(
                     EC.visibility_of_element_located((By.ID,key))
                 )
+                self.logv2(str,"done")
                 return ele
         except:
             #return False
+            self.logv2(str,"FAIL")
             raise
 
     def scrollUntilGetElement(self, type, key):
@@ -107,7 +110,7 @@ class Util:
 
 
     def screenshot(self, name):
-        screenshot_name = str(self.screenshot_count) + "_" + name + ".png" 
+        screenshot_name = str(time.strftime("%H%M%S")) + "_" + name + ".png" 
         self.log ("Taking screenshot: " + self.screenshot_dir + "/" + screenshot_name)
         # on Android, switching context to NATIVE_APP for screenshot
         # taking to get screenshots also stored to Testdroid Cloud
@@ -119,10 +122,14 @@ class Util:
         # only change context if originally context was WEBVIEW
         if orig_context not in self.driver.current_context:
             self.driver.switch_to.context("WEBVIEW")
-        self.screenshot_count += 1
+        #self.screenshot_count += 1
 
 
     def log(self, msg):
         print (time.strftime("%H:%M:%S") + ": " + msg)
         return
 
+    def logv2(self, msg, type):
+        if (msg != ""):
+            str = '{0:-<30}'.format(msg)
+            print(str+type)
