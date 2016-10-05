@@ -116,17 +116,13 @@ class KBD_regression_test(unittest.TestCase):
 
     def test_firstExecute_have_rating(self):
         try:
-            savePowerEle = self.kbdutil.waitUntilAndGetElement("id",el.BatteryDoctor["SaveTab"],"ClickSaveTab",20)
-            #print("[PASS][Home Page]Check Save Tab done.")
+            savePowerEle = self.kbdutil.waitUntilAndGetElement("id", el.BatteryDoctor["SaveTab"], "ClickSaveTab", 20)
             savePowerEle.click()
-            oneTapSavePowerBtnEle = self.kbdutil.waitUntilAndGetElement("id",el.SaveTab["Optimize"],"ClickOptimize")
-            #print("[PASS][Home Page]Click Optimize button done.")
+            oneTapSavePowerBtnEle = self.kbdutil.waitUntilAndGetElement("id", el.SaveTab["Optimize"], "ClickOptimize")
             oneTapSavePowerBtnEle.click()
-            guide_btn_close = self.kbdutil.waitUntilAndGetElement("id",el.ResultPage["PopupWindowX"],"ClickPopupWindowX",5)
-            #print("[PASS][Result Page]Check and Click floating window Tryitnow done. It's 1st time enter to Result Page.")
+            guide_btn_close = self.kbdutil.waitUntilAndGetElement("id", el.ResultPage["PopupWindowX"], "ClickPopupWindowX", 5)
             guide_btn_close.click()
-            backEle = self.kbdutil.waitUntilAndGetElement("id",el.ResultPage["Backkey"],"ClickBackKey")
-            #print("[PASS][Result Page]Click Back key to Home done.")
+            backEle = self.kbdutil.waitUntilAndGetElement("id", el.ResultPage["Backkey"], "ClickBackKey")
             backEle.click()
             result = self.kbdutil.checkElVisible(el.SaveTab["FloatingFull"])
             self.assertTrue(result,"[FAIL][Home Page] Home page does not have rating dialog after first time execute optimize ")
@@ -136,9 +132,9 @@ class KBD_regression_test(unittest.TestCase):
 
     def test_availableTimecanClickAndGoToItsPage(self):
         try:
-            savePowerEle = self.kbdutil.waitUntilAndGetElement("id",el.BatteryDoctor["SaveTab"],"ClickSaveTab",20)
+            savePowerEle = self.kbdutil.waitUntilAndGetElement("id", el.BatteryDoctor["SaveTab"], "ClickSaveTab", 20)
             savePowerEle.click()
-            test = self.kbdutil.scrollUntilGetElement("id",el.SaveTab["AvailableTimeMovie"],"ClickAvailableTimeArea")
+            test = self.kbdutil.scrollUntilGetElement("id", el.SaveTab["AvailableTimeMovie"], "ClickAvailableTimeArea")
             test.click()
             result = self.kbdutil.checkElVisible(el.Availabletime['2GIcon'])
             self.assertTrue(result,"[FAIL][Home Page] Click Available time area can not go to Available time page")
