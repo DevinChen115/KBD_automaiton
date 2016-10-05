@@ -108,6 +108,7 @@ class Util:
             selector = 'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().resourceId(\"'+ key +'\").instance(0));'
         return self.driver.find_element_by_android_uiautomator(selector)
 
+
     def screenshot(self, name):
         screenshot_name = str(time.strftime("%H%M%S")) + "_" + name + ".png" 
         self.log ("Taking screenshot: " + self.screenshot_dir + "/" + screenshot_name)
@@ -122,6 +123,7 @@ class Util:
         if orig_context not in self.driver.current_context:
             self.driver.switch_to.context("WEBVIEW")
         #self.screenshot_count += 1
+
 
     def log(self, msg):
         print (time.strftime("%H:%M:%S") + ": " + msg)
