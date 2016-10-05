@@ -1,22 +1,18 @@
-import os, sys, time, fnmatch, smtplib, shutil, subprocess
-from time import sleep
-from datetime import date
-import unittest
-from appium import webdriver
-
+import time
+import subprocess
+# from appium import webdriver
 from selenium.webdriver.common.by import By
-#from selenium.webdriver.remote.webelement import WebElement
+# from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
-import KBD_element as el
 
 class device_registration():
     def getDeviceStatus():
         getadbState = subprocess.getoutput("adb get-state")
         getadbStateA = getadbState.find("device")
-        if getadbStateA is not -1 :
+        if getadbStateA is not -1:
             print("adb connection is available to use. getadbState = " + getadbState)
         else:
             print("adb connection is unavailable to use. getadbState = " + getadbState)
@@ -26,16 +22,21 @@ class device_registration():
         getPropAndroidversion = subprocess.getoutput("adb shell getprop ro.build.version.release")
         getPropSDKversion = subprocess.getoutput("adb shell getprop ro.build.version.sdk")
         getPropSerialNo = subprocess.getoutput("adb shell getprop ro.serialno")
-        Result = dict (Manufacturer=getPropManufacturer,Model=getPropModel,Brand=getPropBrand,Androidversion=getPropAndroidversion,SDKversion=getPropSDKversion,SerialNo=getPropSerialNo)
+        Result = dict(
+            Manufacturer=getPropManufacturer,
+            Model=getPropModel,
+            Brand=getPropBrand,
+            Androidversion=getPropAndroidversion,
+            SDKversion=getPropSDKversion,
+            SerialNo=getPropSerialNo)
         return Result
+
 
 class Util:
     def __init__(self, mDevice, dir):
         self.driver = mDevice
-        #self.screenshot_count = 1
+        # self.screenshot_count = 1
         self.screenshot_dir = dir
-        if not os.path.exists(self.screenshot_dir):
-            os.makedirs(self.screenshot_dir)
 
     def checkElClickable(self, rid):
         try:
@@ -44,7 +45,7 @@ class Util:
         except TimeoutException:
             print("Check element " + str(rid) + " clickable fail.")
             return False
-    
+
     def checkElPresence(self, rid):
         try:
             WebDriverWait(self.driver, 20).until(EC.presence_of_element_located((By.ID, rid)))
@@ -72,52 +73,63 @@ class Util:
             return self.driver.find_element_by_id(rid).text
         except TimeoutException:
             print("Get element " + str(rid) + " Text Error.")
-    
+
     def scrollTo(self, rid):
         try:
-            self.driver.find_element_by_android_uiautomator('new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().resourceId(\"' + rid + '\").instance(0));')
+            self.driver.find_element_by_android_uiautomator(
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().resourceId(\"' + rid + '\").instance(0));')
             return True
         except TimeoutException:
             print("Scroll to element " + str(rid) + " Timeout.")
             return False
-    
+
+    def isNotMatch(self, resultA, resultB, str=""):
+        try:
+            if(resultA != resultB):
+                self.logv2(str, "done")
+                return True
+            else:
+                self.logv2(str, "FAIL")
+                return False
+        except:
+            self.logv2(str, "FAIL")
+            raise
 
     def waitUntilAndGetElement(self, type, key, str="", timeout=3):
         try:
             if(type == 'name'):
-                ele = WebDriverWait(self.driver,timeout).until(
-                    EC.visibility_of_element_located((By.Name,key))
+                ele = WebDriverWait(self.driver, timeout).until(
+                    EC.visibility_of_element_located((By.Name, key))
                 )
-                self.logv2(str,"done")
+                self.logv2(str, "done")
                 return ele
             if(type == 'id'):
-                ele = WebDriverWait(self.driver,timeout).until(
-                    EC.visibility_of_element_located((By.ID,key))
+                ele = WebDriverWait(self.driver, timeout).until(
+                    EC.visibility_of_element_located((By.ID, key))
                 )
-                self.logv2(str,"done")
+                self.logv2(str, "done")
                 return ele
         except:
-            #return False
-            self.logv2(str,"FAIL")
+            # return False
+            self.logv2(str, "FAIL")
             raise
 
-    def scrollUntilGetElement(self, type, key,str=""):
+    def scrollUntilGetElement(self, type, key, str=""):
         if(type == 'text'):
-            selector = 'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"'+ key +'\").instance(0));'
+            selector = 'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"' + key + '\").instance(0));'
         if(type == "id"):
-            selector = 'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().resourceId(\"'+ key +'\").instance(0));'
+            selector = 'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().resourceId(\"' + key + '\").instance(0));'
         try:
             ele = self.driver.find_element_by_android_uiautomator(selector)
-            self.logv2(str,"done")
+            self.logv2(str, "done")
             return ele
         except:
             self.logv2(str, "FAIL")
             raise
 
-
     def screenshot(self, name):
-        screenshot_name = str(time.strftime("%H%M%S")) + "_" + name + ".png" 
-        self.log ("Taking screenshot: " + self.screenshot_dir + "/" + screenshot_name)
+        screenshot_name = str(time.strftime("%H%M%S")) + "_" + name + ".png"
+        self.log("Taking screenshot: " + self.screenshot_dir + "/" + screenshot_name)
         # on Android, switching context to NATIVE_APP for screenshot
         # taking to get screenshots also stored to Testdroid Cloud
         # device run view. After screenshot switching back to
@@ -128,14 +140,13 @@ class Util:
         # only change context if originally context was WEBVIEW
         if orig_context not in self.driver.current_context:
             self.driver.switch_to.context("WEBVIEW")
-        #self.screenshot_count += 1
-
+        # self.screenshot_count += 1
 
     def log(self, msg):
-        print (time.strftime("%H:%M:%S") + ": " + msg)
+        print(time.strftime("%H:%M:%S") + ": " + msg)
         return
 
     def logv2(self, msg, type):
         if (msg != ""):
-            str = '{0:-<30}'.format(msg)
-            print(str+type)
+            str = '{0:-<60}'.format(msg)
+            print(str + type)
